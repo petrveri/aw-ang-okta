@@ -1,0 +1,1 @@
+docker run -p 4203:4200 --rm petrveri/awsdr_ang

@@ -1,0 +1,12 @@
+<p>customers-list works!</p>
+
+<nav>
+  <a routerLink="/">Home</a>
+</nav>
+
+<h2>My Customers</h2>
+<ul class="customers">
+  <li *ngFor="let customer of customers">
+    <span class="badge">{{customer.customerID}}</span> {{customer.firstName}}
+  </li>
+</ul>

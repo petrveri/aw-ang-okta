@@ -1,0 +1,13 @@
+<p>settings works!</p>
+
+<nav>
+  <a routerLink="/">Home</a>
+</nav>
+
+<div class="col-sm-12">
+  <label class="col-sm-3">Customer Resource address</label> <input #newCustomerAddress type="text" [(ngModel)]="customerResourceHostPort" required />
+</div>
+<div class="col-sm-12">
+  <button class="btn btn-primary" (click)="setCustomerResourceHostPort(newCustomerAddress.value)" type="submit">Set Customer Resource Address</button>
+</div>
+
