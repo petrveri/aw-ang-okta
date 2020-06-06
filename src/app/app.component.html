@@ -1,10 +1,14 @@
-<h1>{{title}}</h1>
-<app-home></app-home>
+<div style="text-align:center">
+  <h1>Welcome to {{title}}!</h1>
+</div>
 
-<!-- app-customers-list></app-customers-list -->
-<nav>
-  <a routerLink="/customers">Customers</a><br/>
-  <a routerLink="/settings">Settings</a>
-</nav>
+<button *ngIf="!isAuthenticated" class="btn btn-primary" (click)="loginRedirect()" type="submit">Login</button>
+<div *ngIf="isAuthenticated">
+  <a class="btn btn-default pull-right" (click)="logout()" routerLink="/">Logout</a>
+  <nav>
+    <a routerLink="/customers">Customers</a><br/>
+    <a routerLink="/settings">Settings</a>
+  </nav>
+</div>
 
 <router-outlet></router-outlet>
