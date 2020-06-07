@@ -1,1 +1,1 @@
-docker build . -f Dockerfile -t petrveri/awsdr_ang
+docker build . -f Dockerfile -t petrveri/aw-ng-okta-impl

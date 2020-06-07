@@ -12,7 +12,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class CustomerService {
 
   private customersProtocol = 'http://';
-  private customersHostPort = 'localhost:8080';
+  private resourceServerIp = '192.168.56.1';
+  private customersHostPort = this.resourceServerIp + ':8080';
   private customersPath = '/api/saleslt/customers';  // Path to web api'
 
   constructor(
