@@ -16,12 +16,14 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent, canActivate: [ OktaAuthGuard ] }
 ];
 
+const thisServerIp = '192.168.56.1'; // Kubernetes Service External endpoint or localhost hostname/IP
+
 const oktaConfig = {
   issuer: 'https://dev-377283.okta.com/oauth2/default',
   clientId: '0oae5ys5hkHfHsIgh4x6',
-  redirectUri: 'http://localhost:4200/implicit/callback',
+  redirectUri: 'http://' + thisServerIp + ':4200/implicit/callback',
   scopes: ['openid', 'profile', 'email'],
-  pkce: true
+  pkce: false
 }
 
 @NgModule({
