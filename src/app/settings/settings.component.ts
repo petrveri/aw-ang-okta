@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from '../customer.service';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,15 +8,15 @@ import { CustomerService } from '../customer.service';
 })
 export class SettingsComponent implements OnInit {
 
-  public customerResourceHostPort: string;
-  constructor(private customerService: CustomerService) { }
+  public resourceHostPort: string;
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    this.customerResourceHostPort = this.customerService.getCustomerResourceHostPort();
+    this.resourceHostPort = this.appService.getResourceHostPort();
   }
 
-  setCustomerResourceHostPort(customerResourceHostPort) {
-    this.customerResourceHostPort = customerResourceHostPort;
-    this.customerService.setCustomerResourceHostPort(customerResourceHostPort);
+  setResourceHostPort(resourceHostPort) {
+    this.resourceHostPort = resourceHostPort;
+    this.appService.setResourceHostPort(resourceHostPort);
   }
 }

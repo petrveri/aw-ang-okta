@@ -3,10 +3,26 @@
 </nav>
 
 <div class="col-sm-12">
-  <h3>My Customers</h3>
-  <ul class="customers">
-    <li *ngFor="let customer of customers">
-      <span class="badge">{{customer.customerID}}</span> {{customer.firstName}}
+  <h4>My Customers</h4>
+  <ul class="customers" style="list-style-type:none;">
+    <li *ngFor="let customer of customers" (click)="onSelect(customer)">
+      {{customer.customerID}} <span>•</span> {{customer.firstName}} <span style="font-weight: bold;">{{customer.lastName}}</span>
+      <div *ngIf="selectedCustomer===customer && customerAddresses" style="padding-left: 30px;">
+        <div *ngIf="customerAddresses.length == 0; else showAddresses">
+          <span>No address is found for </span><span style="font-style: italic;">{{customer.firstName}} {{customer.lastName}}</span><br/>
+          <span>Try a customer with customerID > 29000 in the end of this list.</span>
+        </div>
+        <ng-template #showAddresses>
+          <div>
+            <span>Addresses:</span>
+            <ul class="customerAddresses">
+              <li *ngFor="let address of customerAddresses">
+                {{address.addressLine1}} {{address.city}} {{address.state}}
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </div>
     </li>
   </ul>
 </div>
