@@ -3,11 +3,11 @@
 </nav>
 
 <div class="col-sm-12">
-  <label class="col-sm-3">Customer Resource address</label> <input #newCustomerResourceHostPort type="text"
-                                                                   [(ngModel)]="customerResourceHostPort" required />
+  <label class="col-sm-3">Resource address</label> <input #newResourceHostPort type="text"
+                                                          [(ngModel)]="resourceHostPort" required />
 </div>
 <div class="col-sm-12">
-  <button class="btn btn-primary" (click)="setCustomerResourceHostPort(newCustomerResourceHostPort.value)"
-          type="submit">Set Customer Resource Address</button>
+  <button class="btn btn-primary" (click)="setResourceHostPort(newResourceHostPort.value)"
+          type="submit">Set Resource Address</button>
 </div>
 

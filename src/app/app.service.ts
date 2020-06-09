@@ -8,10 +8,23 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 
 export class AppService {
+
+  private protocol = 'http://';
+  private resourceHost = '192.168.56.1';
+  private resourceHostPort = this.resourceHost + ':8080';
+
   constructor(
     private http: HttpClient){}
 
-  getListHttp<T>(operation = 'operation', resourceUrl, result: T[]): Observable<T[]> {
+  setResourceHostPort(resourceHostPort) {
+    this.resourceHostPort = resourceHostPort;
+  }
+  getResourceHostPort() {
+    return this.resourceHostPort;
+  }
+
+  getListHttp<T>(operation = 'operation', resourcePath, result: T[]): Observable<T[]> {
+    let resourceUrl = this.protocol + this.resourceHostPort + resourcePath;
     return this.http.get<T[]>(resourceUrl)
     .pipe(
       catchError(this.handleError<T[]>(operation, []))

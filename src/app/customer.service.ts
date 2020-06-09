@@ -8,23 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
 
-  private protocol = 'http://';
-  private resourceHost = '192.168.56.1';
-  private resourceHostPort = this.resourceHost + ':8080';
   private customersPath = '/api/saleslt/customers';  // Path to web api'
 
   constructor(
     private appService: AppService) { }
 
   getCustomers(): Observable<Customer[]> {
-    let customersUrl = this.protocol + this.resourceHostPort + this.customersPath;
-    return this.appService.getListHttp<Customer>('getCustomers', customersUrl, []);
-  }
-
-  setCustomerResourceHostPort(resourceHostPort) {
-    this.resourceHostPort = resourceHostPort;
-  }
-  getCustomerResourceHostPort() {
-    return this.resourceHostPort;
+    return this.appService.getListHttp<Customer>('getCustomers', this.customersPath, []);
   }
 }
